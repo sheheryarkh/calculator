@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
+
+  <body class="bg-purple-200 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-80">
+      <div class="mb-4">
+        <input type="text" id="display" readonly
+          class="w-full bg-gray-100 text-right text-xl px-2 py-3 rounded-lg focus:outline-none" value="0" />
+      </div>
+      <div class="grid grid-cols-4 gap-4">
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('7')">
+          7
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('8')">
+          8
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('9')">
+          9
+        </button>
+        <button class="bg-yellow-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('/')">
+          /
+        </button>
+  
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('4')">
+          4
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('5')">
+          5
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('6')">
+          6
+        </button>
+        <button class="bg-yellow-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('*')">
+          *
+        </button>
+  
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('1')">
+          1
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('2')">
+          2
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('3')">
+          3
+        </button>
+        <button class="bg-yellow-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('-')">
+          -
+        </button>
+  
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('0')">
+          0
+        </button>
+        <button class="bg-gray-200 text-xl font-bold px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('.')">
+          .
+        </button>
+        <button class="bg-yellow-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="calculate()">
+          =
+        </button>
+        <button class="bg-yellow-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="appendToDisplay('+')">
+          +
+        </button>
+      </div>
+      <div class="mt-4">
+        <button class="bg-red-500 text-xl font-bold text-white px-4 py-2 rounded-lg focus:outline-none"
+          onclick="deleteLast()">
+          DEL
+        </button>
+      </div>
+    </div>
+  
+    <script>
+      function appendToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+  
+      function calculate() {
+        try {
+          document.getElementById("display").value = eval(
+            document.getElementById("display").value
+          );
+        } catch (error) {
+          document.getElementById("display").value = "Error";
+        }
+      }
+  
+      function deleteLast() {
+        var display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+      }
+    </script>
+  </body>
+  
